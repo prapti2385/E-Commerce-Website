@@ -84,7 +84,7 @@ const ShopContextProvider = ({ children }) => {
     getCartCount,
     updateQuantity,
     getCartAmount,
-    navigate
+    navigate,
   };
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
