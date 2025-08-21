@@ -11,20 +11,22 @@ const Cart = () => {
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    const tempData = [];
-    for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        if (cartItems[items][item] > 0) {
-          tempData.push({
-            _id: items,
-            size: item,
-            quantity: cartItems[items][item],
-          });
+    if (products.length > 0) {
+      const tempData = [];
+      for (const items in cartItems) {
+        for (const item in cartItems[items]) {
+          if (cartItems[items][item] > 0) {
+            tempData.push({
+              _id: items,
+              size: item,
+              quantity: cartItems[items][item],
+            });
+          }
         }
       }
+      setCartData(tempData);
     }
-    setCartData(tempData);
-  }, [cartItems]);
+  }, [cartItems, products]);
   return (
     <div className="border-t pt-14">
       <div className="text-2xl mb-3">
@@ -64,10 +66,16 @@ const Cart = () => {
               <input
                 type="number"
                 min={1}
-                defaultValue={item.quantity}
+                value={item.quantity} // ✅ use value, not defaultValue
                 className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1"
-                onChange={(event) => event.target.value === '' || event.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(event.target.value))}
+                onChange={(event) => {
+                  const val = Number(event.target.value);
+                  if (val > 0) {
+                    updateQuantity(item._id, item.size, val);
+                  }
+                }}
               />
+
               <img
                 src={assets.bin_icon}
                 alt=""
@@ -82,11 +90,15 @@ const Cart = () => {
         <div className="w-full sm:w-[450px]">
           <CartTotal />
           <div className="w-full text-end">
-            <button className="bg-black text-white text-sm my-8 px-8 py-3" onClick={() => navigate('/place-order')}>PROCEED TO CHECKOUT</button>
+            <button
+              className="bg-black text-white text-sm my-8 px-8 py-3"
+              onClick={() => navigate("/place-order")}
+            >
+              PROCEED TO CHECKOUT
+            </button>
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
