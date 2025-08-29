@@ -78,6 +78,8 @@ const PlaceOrder = () => {
             toast.error(response.data.message);
           }
           break;
+        case "stripe":
+          break;
         default:
           break;
       }
