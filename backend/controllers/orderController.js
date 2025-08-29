@@ -1,5 +1,3 @@
-
-import { products } from "../../frontend/src/assets/assets.js";
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 import Stripe from "stripe";
@@ -8,7 +6,7 @@ import Stripe from "stripe";
 const currency = "usd";
 const deliveryCharge = 10;
 // Gatewway initialize
-const stripe = new Stripe(process.env.STRIPE_SECTRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 // Placing orders using COD method
 const placeOrder = async (req, res) => {
   try {
@@ -116,6 +114,24 @@ const updateStatus = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
+  }
+};
+
+// Verify Stripe
+export const verifyStripe = async (req, res) => {
+  const { orderId, success, userId } = req.body;
+  try {
+    if (success == "true") {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true });
+      await userModel.findByIdAndUpdate(userId, { cartData: {} });
+      res.json({ success: true });
+    } else {
+      await orderModel.findByIdAndDelete(orderId);
+      res.json({ success: false });
+    }
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+    console.log(error);
   }
 };
 
