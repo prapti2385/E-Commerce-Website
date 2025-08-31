@@ -33,7 +33,7 @@ const ShopContextProvider = ({ children }) => {
     } else {
       cartData[itemId] = {};
       cartData[itemId][size] = 1;
-      console.log("Item added to cart");
+      toast.success("Item added to cart");
     }
     setCartItems(cartData);
     if (token) {
