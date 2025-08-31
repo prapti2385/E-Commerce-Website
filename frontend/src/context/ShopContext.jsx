@@ -25,12 +25,15 @@ const ShopContextProvider = ({ children }) => {
     if (cartData[itemId]) {
       if (cartData[itemId][size]) {
         cartData[itemId][size] += 1;
+        toast.success("Item added to cart");
       } else {
         cartData[itemId][size] = 1;
+        toast.success("Item added to cart");
       }
     } else {
       cartData[itemId] = {};
       cartData[itemId][size] = 1;
+      console.log("Item added to cart");
     }
     setCartItems(cartData);
     if (token) {
@@ -67,7 +70,7 @@ const ShopContextProvider = ({ children }) => {
     let totalAmount = 0;
     for (const items in cartItems) {
       let itemInfo = products.find((product) => product._id === items);
-      if(!itemInfo) continue;
+      if (!itemInfo) continue;
       for (const item in cartItems[items]) {
         try {
           if (cartItems[items][item] > 0) {
