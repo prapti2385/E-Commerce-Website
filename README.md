@@ -4,6 +4,17 @@ A full-stack e-commerce application built with the **MERN stack** (MongoDB, Expr
 It features a **customer-facing frontend**, a **separate admin dashboard** for management, and a **robust backend API**.
 
 ---
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/b184fe88-aaf0-476d-b27d-3035a40d403a" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/9055af7d-d049-419c-a605-bf04514dd171" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/2c91e25e-2b9b-4bbb-af4b-166e891dffc3" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/748865e2-c6a3-404c-945b-a8b97edc1814" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/a11d28e5-67ce-4a49-9fdb-9d4ca38d98cb" />
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/4816751f-9042-4c53-a4c0-acca07dfaf6a" />
+
+
+
+
+
 
 ## ✨ Key Features
 
