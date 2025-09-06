@@ -107,4 +107,4 @@ npm run dev
 - 🛠️ **Terminal 3**: npm run dev in /admin
 ---
 ## License 
-[MIT]()
+[MIT](https://github.com/prapti2385/E-Commerce-Website/tree/main?tab=MIT-1-ov-file)
