@@ -104,11 +104,17 @@ cd frontend
 npm install
 npm run dev
 ```
+```bash
+VITE_BACKEND_URL = your_backend_url
+```
 ## 3. Setup Admin
 ```
 cd admin
 npm install
 npm run dev
+```
+```bash
+VITE_BACKEND_URL = your_backend_url
 ```
 
 ## Running the Full Project
